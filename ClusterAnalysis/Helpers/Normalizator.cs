@@ -25,30 +25,30 @@ namespace ClusterAnalysis
             var butterStatistics = this.CountryStatistics.Select(s => s.ButterConsumption).ToArray();
             this.GetNormalizedValues(butterStatistics, maxValue);
 
-            var sugarStatistics = this.CountryStatistics.Select(s => s.SugarConsumption).ToArray();
+            var sugarStatistics = this.CountryStatistics.Select(s => s.AlcoholConsumption).ToArray();
             this.GetNormalizedValues(sugarStatistics, maxValue);
 
-            var deathStatistics = this.CountryStatistics.Select(s => s.DeathLevel).ToArray();
+            var deathStatistics = this.CountryStatistics.Select(s => s.FruitConsumption).ToArray();
             this.GetNormalizedValues(deathStatistics, maxValue);
 
             for (int i = 0; i < countryStatisticsCount; i++)
             {
                 this.CountryStatistics[i].MeatConsumption = meatStatistics[i];
                 this.CountryStatistics[i].ButterConsumption = butterStatistics[i];
-                this.CountryStatistics[i].SugarConsumption = sugarStatistics[i];
-                this.CountryStatistics[i].DeathLevel = deathStatistics[i];
+                this.CountryStatistics[i].AlcoholConsumption = sugarStatistics[i];
+                this.CountryStatistics[i].FruitConsumption = deathStatistics[i];
             }
         }
 
         private void GetNormalizedValues(double[] metrics, int maxValue)
         {
             int countryStatisticsCount = this.CountryStatistics.Length;
-            double minMeatConsumption = metrics.Min();
+            double minMetrics = metrics.Min();
             for (int i = 0; i < countryStatisticsCount; i++)
-                metrics[i] -= minMeatConsumption;
+                metrics[i] -= minMetrics;
 
-            double maxMeatConsumption = metrics.Max();
-            double factor = maxValue / maxMeatConsumption;
+            double maxMetrics= metrics.Max();
+            double factor = maxValue / maxMetrics;
             for (int i = 0; i < countryStatisticsCount; i++)
                 metrics[i] *= factor;
         }

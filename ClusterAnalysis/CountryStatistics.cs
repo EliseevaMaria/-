@@ -15,14 +15,19 @@ namespace ClusterAnalysis
 
         public double ButterConsumption { get; set; }
 
-        public double SugarConsumption { get; set; }
+        public double AlcoholConsumption { get; set; }
 
-        public double DeathLevel { get; set; }
+        public double FruitConsumption { get; set; }
 
         public DoubleVector GetDoubleVector()
         {
-            return new DoubleVector(this.MeatConsumption, this.ButterConsumption, 
-                                    this.SugarConsumption, this.DeathLevel);
+            return new DoubleVector(this.MeatConsumption, this.ButterConsumption,
+                                    this.AlcoholConsumption, this.FruitConsumption);
+        }
+
+        public override string ToString()
+        {
+            return this.Country;
         }
     }
 }
