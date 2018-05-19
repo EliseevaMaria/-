@@ -16,7 +16,7 @@ namespace ClusterAnalysis.Helpers
 
         private string[] distanceFunctions;
         private string[] DistanceFunctions => this.distanceFunctions ??
-            (this.distanceFunctions = new string[] { "Euclidean distance function", "?", "Power distance function" });
+            (this.distanceFunctions = new string[] { "Euclidean distance function", "Mahalanobis function", "Power distance function" });
 
         private string[] linkageFunctions;
         private string[] LinkageFunctions => this.linkageFunctions ??
